@@ -39,7 +39,7 @@ function _ruby_version() {
   if {echo $fpath | grep -q "plugins/rvm"}; then
     echo "%{$fg[yellow]%}$(rvm_prompt_info)%{$reset_color%}"
   elif {echo $fpath | grep -q "plugins/rbenv"}; then
-    echo "%{$fg[yellow]%}$(rbenv_prompt_info)%{$reset_color%}"
+    echo "%{$fg[yellow]%}$(rbenv_prompt_info | sed 's/[)(]//g')%{$reset_color%}"
   fi
 }
 
